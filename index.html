@@ -3,184 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wise Wolf - Christian Investigative Journalism Archive</title>
-    <meta name="description" content="Archive of Christian investigative journalism from The Wise Wolf. Biblical prophecy, end times analysis, and fearless truth-telling.">
-    <meta name="keywords" content="Christian journalism, biblical prophecy, end times, investigative reporting, The Wise Wolf">
+    <title>The Wise Wolf — Archive</title>
+    <meta name="description" content="Independent Christian investigative journalism. Biblical prophecy analysis and fearless truth-telling.">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            line-height: 1.8;
-            color: #333;
-            background: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        header {
-            width: 100%;
-            background: #1a1a1a;
-        }
-        
-        header img {
-            width: 100%;
-            display: block;
-        }
-        
-        .main-content {
-            padding: 40px 50px;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-        
-        .tagline {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-        
-        .article-preview {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .article-preview h2 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-        
-        .article-preview h2 a {
-            color: #1a1a1a;
-            text-decoration: none;
-        }
-        
-        .article-preview h2 a:hover {
-            color: #c41e3a;
-        }
-        
-        .preview-text {
-            color: #555;
-            margin-bottom: 10px;
-        }
-        
-        .original-link {
-            font-size: 0.9em;
-            color: #666;
-        }
-        
-        .original-link a {
-            color: #c41e3a;
-            text-decoration: none;
-        }
-        
-        .original-link a:hover {
-            text-decoration: underline;
-        }
-        
-        .subscribe-box {
-            background: #c41e3a;
-            color: white;
-            padding: 30px;
-            text-align: center;
-            margin: 40px 0;
-            border-radius: 5px;
-        }
-        
-        .subscribe-box h2 {
-            margin-bottom: 15px;
-        }
-        
-        .subscribe-button {
-            display: inline-block;
-            background: white;
-            color: #c41e3a;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 15px;
-            font-size: 1.1em;
-        }
-        
-        .subscribe-button:hover {
-            background: #f5f5f5;
-        }
-        
-        footer {
-            width: 100%;
-            background: #1a1a1a;
-        }
-        
-        footer img {
-            width: 100%;
-            display: block;
-        }
+    
+/* ============================================================
+   THE WISE WOLF — DARK EDITORIAL THEME
+   Premium investigative journalism aesthetic
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Code+Pro:wght@400;500&family=Oswald:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-base:        #0d0d0e;
+  --bg-surface:     #111113;
+  --bg-raised:      #161618;
+  --bg-panel:       #1a1a1d;
+  --bg-hover:       #202024;
+  --border:         #2a2a2e;
+  --border-subtle:  #1f1f23;
+  --text-primary:   #e8e6e1;
+  --text-secondary: #9e9c97;
+  --text-muted:     #5a5856;
+  --slash-color:    #cc3333;
+  --font-logo:      'Cinzel Decorative', serif;
+  --font-heading:   'Cinzel', serif;
+  --font-body:      'EB Garamond', Georgia, serif;
+  --font-ui:        'Oswald', sans-serif;
+  --font-mono:      'Source Code Pro', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+.site-nav {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  padding: 1rem 1.5rem;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-logo {
+  text-decoration: none;
+}
+.logo-text {
+  font-family: var(--font-logo);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+.logo-slash { color: var(--slash-color); }
+.nav-subscribe {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--slash-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-subscribe:hover { background: #e02020; }
+
+/* ARTICLE WRAPPER */
+.article-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+.author-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.author-info { }
+.author-name {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+.author-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* TAGS */
+.tag-row {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.tag {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.tag-featured {
+  background: rgba(192,57,43,0.15);
+  border-color: var(--slash-color);
+  color: #ff7070;
+}
+
+/* ARTICLE TITLE */
+.article-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+.article-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.article-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* ARTICLE BODY */
+.article-body p:first-of-type::first-letter {
+  font-family: var(--font-heading);
+  font-size: 4.2rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.12em;
+  margin-top: 0.1em;
+  color: var(--text-primary);
+}
+.article-body p {
+  margin-bottom: 1.6rem;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--text-primary);
+}
+.article-body p a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--slash-color);
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.article-body p a:hover { color: #ff6b6b; }
+.article-body h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 2.5rem 0 0.75rem;
+  letter-spacing: 0.02em;
+}
+.article-body h3 {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--slash-color);
+  margin: 2rem 0 0.75rem;
+}
+
+/* PULL QUOTE */
+.pull-quote {
+  border-left: 3px solid var(--slash-color);
+  padding: 0.75rem 1.5rem;
+  margin: 2.5rem 0;
+  background: var(--bg-surface);
+}
+.pull-quote p {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0 !important;
+}
+.pull-quote cite {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* CTA BOX */
+.cta-box {
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--slash-color);
+  background: var(--bg-surface);
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0;
+}
+.cta-box h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+.cta-box p {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem !important;
+}
+.btn-cta {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--slash-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-cta:hover { background: #e02020; }
+
+/* KEYWORDS / META */
+.keywords-section {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.keywords-label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.keywords-list {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* RELATED ARTICLES GRID */
+.related-section {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.section-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+.section-header span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--border-subtle);
+}
+.post-card {
+  background: var(--bg-base);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  display: block;
+}
+.post-card:hover { background: var(--bg-surface); }
+.card-kicker {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--slash-color);
+  margin-bottom: 0.4rem;
+}
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.card-excerpt {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-subtle);
+  padding: 2.5rem 1.5rem;
+  margin-top: 4rem;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: var(--font-logo);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text-secondary); }
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .article-wrap { padding: 2rem 1rem 3rem; }
+  .article-title { font-size: 1.6rem; }
+  .post-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .nav-inner { flex-direction: column; gap: 0.75rem; }
+}
+
+    
+    .index-header {
+        text-align: center;
+        padding: 4rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .index-title {
+        font-family: var(--font-logo);
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+    }
+    .index-sub {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 500px;
+        margin: 0 auto 1.5rem;
+    }
+    .index-cta {
+        display: inline-block;
+        font-family: var(--font-ui);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        background: var(--slash-color);
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 3px;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    .index-cta:hover { background: #e02020; }
+    .archive-header {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 1rem;
+    }
+    .archive-header h2 {
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-primary);
+    }
+    .archive-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1px;
+        background: var(--border-subtle);
+    }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="images/headerimage.png" alt="The Wise Wolf">
-        </header>
-        
-        <div class="main-content">
-            <h1>Christian Investigative Journalism Archive</h1>
-            <p class="tagline">Fearless truth-telling, biblical prophecy analysis, and investigative reporting from The Wise Wolf</p>
-            
-            <div class="subscribe-box">
-                <h2>Subscribe to The Wise Wolf</h2>
-                <p>Join 60,000+ readers getting uncompromising Christian investigative journalism.</p>
-                <a href="https://www.thewisewolf.club" class="subscribe-button" target="_blank">Subscribe Free</a>
-            </div>
-            
-            
-            <div class="article-preview">
-                <h2><a href="articles/the-epstein-files-and-the-fulfillment-of-biblical-prophecy-20260217081205.html">The Epstein Files and the Fulfillment of Biblical Prophecy</a></h2>
-                <p class="preview-text">The End Times are upon us, and the dark forces controlling this world have never been more exposed. In the explosive investigation unearthed by The Wise Wolf, the sinister connections between the Epst...</p>
-                <p class="original-link">Based on: <a href="https://www.thewisewolf.club/p/the-epstein-files-the-cover-up-coup" target="_blank">THE EPSTEIN FILES: The Cover-Up That’s About to End American Democracy</a></p>
-            </div>
-            
-            <div class="article-preview">
-                <h2><a href="articles/the-epstein-eschatology-how-a-billionaire-pedophile-may-fulfill-biblical-prophecy-20260217081205.html">The Epstein Eschatology: How a Billionaire Pedophile May Fulfill Biblical Prophecy</a></h2>
-                <p class="preview-text">This, the Epstein files, is not merely a story of depravity and corruption. No, what we are witnessing is the unfolding of a dark prophetic narrative, a twisted tale that may hold the keys to America&#39;...</p>
-                <p class="original-link">Based on: <a href="https://www.thewisewolf.club/p/the-epstein-files-the-cover-up-coup" target="_blank">THE EPSTEIN FILES: The Cover-Up That’s About to End American Democracy</a></p>
-            </div>
-            
-            <div class="article-preview">
-                <h2><a href="articles/the-epstein-files-exposing-the-darkness-that-threatens-to-consume-america-20260217081205.html">The Epstein Files: Exposing the Darkness That Threatens to Consume America</a></h2>
-                <p class="preview-text">In the shadows of American power, a web of deceit and corruption has festered, threatening to unravel the very fabric of our democracy. The Epstein Files, a chilling exposé by our investigative team, ...</p>
-                <p class="original-link">Based on: <a href="https://www.thewisewolf.club/p/the-epstein-files-the-cover-up-coup" target="_blank">THE EPSTEIN FILES: The Cover-Up That’s About to End American Democracy</a></p>
-            </div>
-            
-            
-            <div class="subscribe-box">
-                <h2>Support Independent Journalism</h2>
-                <p>These articles are derivative analyses of original investigative reporting. Support the source:</p>
-                <a href="https://www.thewisewolf.club" class="subscribe-button" target="_blank">Visit TheWiseWolf.club</a>
-            </div>
-        </div>
-        
-        <footer>
-            <img src="images/footerimage.jpg" alt="Thanks for Reading - The Wise Wolf">
-        </footer>
+
+<!-- NAV -->
+<nav class="site-nav">
+    <div class="nav-inner">
+        <a class="site-logo" href="index.html">
+            <span class="logo-text">The Wise<span class="logo-slash">//</span>Wolf</span>
+        </a>
+        <a href="https://www.thewisewolf.club" class="nav-subscribe" target="_blank">Subscribe</a>
     </div>
+</nav>
+
+<!-- HEADER -->
+<div class="index-header">
+    <h1 class="index-title">The Wise<span class="logo-slash">//</span>Wolf</h1>
+    <p class="index-sub">Independent Christian investigative journalism. Biblical prophecy analysis and fearless truth-telling.</p>
+    <a href="https://www.thewisewolf.club" class="index-cta" target="_blank">Subscribe to The Wise Wolf</a>
+</div>
+
+<!-- ARCHIVE -->
+<div class="archive-header">
+    <h2>Article Previews (1 articles)</h2>
+</div>
+<div class="archive-grid">
+    
+            <a href="articles/apocalyptic-prophecies-and-the-epstein-scandal-is-the-end-times-upon-us-20260216195825.html" class="post-card">
+                <div class="card-kicker">Preview</div>
+                <h3 class="card-title">Apocalyptic Prophecies And The Epstein Scandal Is The End Ti</h3>
+                <p class="card-excerpt">Preview article from The Wise Wolf...</p>
+            </a>
+            
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-logo">The Wise<span class="logo-slash">//</span>Wolf</div>
+        <nav class="footer-links">
+            <a href="index.html">Archive</a>
+            <a href="https://www.thewisewolf.club" target="_blank">Subscribe</a>
+        </nav>
+        <div class="footer-copy">© 2025 · Preview content derived from thewisewolf.club</div>
+    </div>
+</footer>
+
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T5EVVMFT1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5T5EVVMFT1');
+        
+        // Track outbound clicks to Substack
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (link && link.href && link.href.includes('substack')) {
+                gtag('event', 'click', {
+                    'event_category': 'outbound',
+                    'event_label': link.href,
+                    'transport_type': 'beacon'
+                });
+            }
+        });
+    </script>
+
+    <!-- GoatCounter -->
+    <script data-goatcounter="https://thewisewolf.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 </body>
 </html>
