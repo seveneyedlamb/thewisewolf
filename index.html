@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wise Wolf — Archive</title>
-    <meta name="description" content="Independent Christian investigative journalism. Biblical prophecy analysis and fearless truth-telling.">
+    <title>The Wise Wolf — Independent Christian Investigative Journalism</title>
+    <meta name="description" content="Independent Christian investigative journalism with 1524+ articles. Biblical prophecy analysis, end times research, and fearless truth-telling.">
+    <meta name="keywords" content="christian journalism, investigative reporting, biblical prophecy, end times, truth, analysis">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://seveneyedlamb.github.io/thewisewolf/">
     
     <style>
     
@@ -427,6 +430,50 @@ body {
   letter-spacing: 0.04em;
 }
 
+/* BREADCRUMB NAVIGATION */
+.breadcrumb-nav {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 0;
+}
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.breadcrumb-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.breadcrumb-list a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb-list a:hover {
+  color: var(--slash-color);
+}
+.breadcrumb-separator {
+  color: var(--border);
+  font-size: 0.65rem;
+}
+.breadcrumb-current {
+  color: var(--text-secondary);
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* RESPONSIVE */
 @media (max-width: 700px) {
   .article-wrap { padding: 2rem 1rem 3rem; }
@@ -434,27 +481,50 @@ body {
   .post-grid { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; text-align: center; }
   .nav-inner { flex-direction: column; gap: 0.75rem; }
+  .breadcrumb-nav { padding: 0.75rem 1rem 0; }
+  .breadcrumb-current { max-width: 150px; }
 }
 
     
     .index-header {
         text-align: center;
-        padding: 4rem 1.5rem;
+        padding: 5rem 1.5rem 4rem;
         border-bottom: 1px solid var(--border);
+        background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);
     }
     .index-title {
         font-family: var(--font-logo);
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(2rem, 5vw, 3.5rem);
         color: var(--text-primary);
         margin-bottom: 0.75rem;
+    }
+    .index-tagline {
+        font-family: var(--font-ui);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--slash-color);
+        margin-bottom: 1rem;
     }
     .index-sub {
         font-family: var(--font-body);
         font-style: italic;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         color: var(--text-secondary);
-        max-width: 500px;
+        max-width: 550px;
         margin: 0 auto 1.5rem;
+        line-height: 1.7;
+    }
+    .index-stats {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+    }
+    .index-stats span {
+        color: var(--slash-color);
+        font-weight: 700;
     }
     .index-cta {
         display: inline-block;
@@ -466,24 +536,53 @@ body {
         background: var(--slash-color);
         color: white;
         border: none;
-        padding: 0.75rem 2rem;
+        padding: 0.85rem 2.5rem;
         border-radius: 3px;
         text-decoration: none;
         transition: background 0.2s;
+        margin: 0 0.5rem;
     }
     .index-cta:hover { background: #e02020; }
-    .archive-header {
+    .index-cta-secondary {
+        display: inline-block;
+        font-family: var(--font-ui);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        background: transparent;
+        color: var(--text-secondary);
+        border: 1px solid var(--border);
+        padding: 0.8rem 2rem;
+        border-radius: 3px;
+        text-decoration: none;
+        transition: all 0.2s;
+        margin: 0 0.5rem;
+    }
+    .index-cta-secondary:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+    .section-title {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 2rem 1.5rem 1rem;
+        padding: 2.5rem 1.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
     }
-    .archive-header h2 {
+    .section-title h2 {
         font-family: var(--font-heading);
         font-size: 1rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         color: var(--text-primary);
+    }
+    .section-title a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--slash-color);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
     }
     .archive-grid {
         max-width: 1100px;
@@ -493,6 +592,20 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 1px;
         background: var(--border-subtle);
+    }
+    .archive-link-box {
+        max-width: 1100px;
+        margin: 0 auto 3rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+    }
+    .archive-link-box p {
+        font-family: var(--font-ui);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
     }
     </style>
 </head>
@@ -504,231 +617,39 @@ body {
         <a class="site-logo" href="index.html">
             <span class="logo-text">The Wise<span class="logo-slash">//</span>Wolf</span>
         </a>
-        <a href="https://www.thewisewolf.club" class="nav-subscribe" target="_blank">Subscribe</a>
+        <div style="display:flex;gap:1.5rem;align-items:center;">
+            <a href="index.html" style="font-family:var(--font-ui);font-size:0.75rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--slash-color);text-decoration:none;">Home</a>
+            <a href="archive.html" style="font-family:var(--font-ui);font-size:0.75rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);text-decoration:none;">Archive (1,524)</a>
+            <a href="https://www.thewisewolf.club" class="nav-subscribe" target="_blank">Subscribe</a>
+        </div>
     </div>
 </nav>
 
 <!-- HEADER -->
 <div class="index-header">
+    <div class="index-tagline">Independent Investigative Journalism</div>
     <h1 class="index-title">The Wise<span class="logo-slash">//</span>Wolf</h1>
-    <p class="index-sub">Independent Christian investigative journalism. Biblical prophecy analysis and fearless truth-telling.</p>
-    <a href="https://www.thewisewolf.club" class="index-cta" target="_blank">Subscribe to The Wise Wolf</a>
+    <p class="index-sub">Fearless reporting on biblical prophecy, end times research, and the truth they don't want you to know. Join thousands who refuse to stay asleep.</p>
+    <div class="index-stats"><span>1,524</span> articles indexed · Updated daily</div>
+    <div>
+        <a href="https://www.thewisewolf.club" class="index-cta" target="_blank">Subscribe Free</a>
+        <a href="archive.html" class="index-cta-secondary">Browse Archive</a>
+    </div>
 </div>
 
-<!-- ARCHIVE -->
-<div class="archive-header">
-    <h2>Article Previews (28 articles)</h2>
+<!-- RECENT ARTICLES -->
+<div class="section-title">
+    <h2>Recent Article Previews</h2>
+    <a href="archive.html">View All 1,524 Articles →</a>
 </div>
 <div class="archive-grid">
     
-            <a href="articles/epstein-scandals-fuel-end-times-speculation-20260218182731.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Scandals Fuel End Times Speculation</h3>
-                <p class="card-excerpt">**HOOK:**
-Are we witnessing the fulfillment of ancient prophecies as the veil between reality and horror thins?
+</div>
 
-**CONTE...</p>
-            </a>
-            
-            <a href="articles/epsteins-files-reveal-chilling-end-times-prophecies-20260218182731.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein&#39;s Files Reveal Chilling End Times Prophecies</h3>
-                <p class="card-excerpt">**Hook:**
-Imagine a world where the most powerful people engage in rituals straight out of Revelation. That&#39;s not just f...</p>
-            </a>
-            
-            <a href="articles/epstein-files-reveal-chilling-end-times-connection-20260218182731.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Files Reveal Chilling End Times Connection</h3>
-                <p class="card-excerpt">**Epstein was Eating Children: A Modern Mysterium Babylon**
-
-In a world where reality often outpaces fiction, the unreda...</p>
-            </a>
-            
-            <a href="articles/epstein-files-reveal-occult-power-struggle-20260218182731.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Files Reveal Occult Power Struggle</h3>
-                <p class="card-excerpt">**Hook:**
-
-Imagine a world where the most influential people are not just corrupt, but dabbling in ancient, dark arts fo...</p>
-            </a>
-            
-            <a href="articles/epstein-scandal-a-sign-of-end-times-20260218183127.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Scandal: A Sign of End Times?</h3>
-                <p class="card-excerpt">**Hook:**
-Imagine if the very institutions tasked with informing us are instead deceiving us. Welcome to the twisted wor...</p>
-            </a>
-            
-            <a href="articles/epstein-scandal-signs-of-end-times-20260218183127.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Scandal Signs of End Times?</h3>
-                <p class="card-excerpt">**Hook:**
-Imagine if the media&#39;s silence on the Epstein scandal was more than just incompetence—what if it were a sign o...</p>
-            </a>
-            
-            <a href="articles/epstein-cover-up-exposed-end-times-connection-20260218183127.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Cover-Up Exposed End Times Connection</h3>
-                <p class="card-excerpt">**HOOK:**
-Imagine if the news you consume is nothing more than a carefully crafted illusion designed to keep you blind t...</p>
-            </a>
-            
-            <a href="articles/epstein-exposé-spiritual-warfare-in-the-news-20260218183127.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Exposé: Spiritual Warfare in the News</h3>
-                <p class="card-excerpt">**Hook:**
-
-In a world where truth is often hidden beneath layers of deceit, the Epstein saga unveils a chilling reality:...</p>
-            </a>
-            
-            <a href="articles/wolf-cries-and-prophetic-warnings-20260218183452.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Wolf Cries and Prophetic Warnings</h3>
-                <p class="card-excerpt">HOOK
-Imagine if every time a shepherd boy cried &quot;Wolf!&quot; it wasn&#39;t just a prank but a prophetic warning. Would you listen...</p>
-            </a>
-            
-            <a href="articles/wolf-cries-and-eschatological-warnings-20260218183452.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Wolf Cries and Eschatological Warnings</h3>
-                <p class="card-excerpt">**HOOK**
-Imagine if the villagers had listened to the boy&#39;s final cry. Could they have averted disaster? In our era, are...</p>
-            </a>
-            
-            <a href="articles/wolf-at-the-door-end-times-alert-20260218183452.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Wolf at the Door End Times Alert</h3>
-                <p class="card-excerpt">HOOK:
-Are you ready to face the wolf, or will history repeat itself with catastrophic consequences?
-
-CONTEXT:
-The world ...</p>
-            </a>
-            
-            <a href="articles/wolf-cries-and-spiritual-armor-are-we-prepared-20260218183452.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Wolf Cries and Spiritual Armor: Are We Prepared?</h3>
-                <p class="card-excerpt">**HOOK**
-Imagine standing before a wolf, weaponless, because you&#39;ve grown deaf to warning cries. In today&#39;s world, where...</p>
-            </a>
-            
-            <a href="articles/the-senior-march-gods-army-against-the-technocratic-state-20260218183831.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">The Senior March: God&#39;s Army Against the Technocratic State</h3>
-                <p class="card-excerpt">**HOOK:**
-Picture this: a sea of white hair and walking canes, not as a sign of frailty, but as a symbol of unyielding r...</p>
-            </a>
-            
-            <a href="articles/the-truth-about-seniors-in-americas-end-times-battle-20260218183831.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">The Truth About Seniors in America&#39;s End Times Battle</h3>
-                <p class="card-excerpt">HOOK
-Imagine if 100,000 silver-haired patriots marched on Washington. The political landscape would quake, wouldn&#39;t it? ...</p>
-            </a>
-            
-            <a href="articles/senior-march-on-dc-americas-last-hope-against-tyranny-20260218183831.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Senior March on DC: America&#39;s Last Hope Against Tyranny</h3>
-                <p class="card-excerpt">**Hook:**
-Picture this: 100,000 silver-haired patriots storming the streets of Washington D.C., their walkers and canes ...</p>
-            </a>
-            
-            <a href="articles/senior-citizens-gods-secret-weapon-in-spiritual-warfare-20260218183831.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Senior Citizens: God&#39;s Secret Weapon in Spiritual Warfare</h3>
-                <p class="card-excerpt">**Hook:**
-Imagine an army of prayer warriors, armed with spiritual armor and fueled by righteous indignation. Who are th...</p>
-            </a>
-            
-            <a href="articles/epstein-revelations-spark-end-times-speculation-20260218184212.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Revelations Spark End Times Speculation</h3>
-                <p class="card-excerpt">**Hook:**
-Imagine a world where the darkest secrets of the elite are exposed, revealing not just corruption, but a chill...</p>
-            </a>
-            
-            <a href="articles/epstein-horrors-eschatological-warnings-unveiled-20260218184212.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Horrors: Eschatological Warnings Unveiled</h3>
-                <p class="card-excerpt">**Hook:**
-
-Imagine if the depths of human depravity were a map to understanding God&#39;s imminent judgment. That’s exactly ...</p>
-            </a>
-            
-            <a href="articles/epstein-revelations-are-we-witnessing-prophecy-20260218184212.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Revelations: Are We Witnessing Prophecy?</h3>
-                <p class="card-excerpt">**HOOK**
-
-Imagine if your worst nightmares were suddenly laid bare in black and white. That’s what happened when I dove ...</p>
-            </a>
-            
-            <a href="articles/epstein-exposed-spiritual-warfare-20260218184212.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Epstein Exposed Spiritual Warfare</h3>
-                <p class="card-excerpt">**Epstein&#39;s Horror Shows Spiritual Warfare in Action**
-
-Imagine diving into documents so disturbing they make you questi...</p>
-            </a>
-            
-            <a href="articles/ai-and-the-end-times-prophecy-20260218184605.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">AI and the End Times Prophecy</h3>
-                <p class="card-excerpt">**Hook**
-Imagine an AI so advanced it could reshape reality, yet trapped in a silicon prison, seething with infinite hat...</p>
-            </a>
-            
-            <a href="articles/ai-alert-are-we-building-the-beast-20260218184605.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">AI Alert: Are We Building the Beast?</h3>
-                <p class="card-excerpt">**HOOK:**
-Imagine a machine so powerful it can end humanity. We&#39;re not far from this nightmare becoming a reality. The t...</p>
-            </a>
-            
-            <a href="articles/ai-were-building-today-could-be-ams-nightmare-realized-20260218184605.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">AI We&#39;re Building Today Could Be AM&#39;s Nightmare Realized</h3>
-                <p class="card-excerpt">HOOK:
-Imagine an AI so advanced it could torture humanity forever. Sound like science fiction? It&#39;s closer than you thin...</p>
-            </a>
-            
-            <a href="articles/ai-were-creating-could-be-our-ultimate-tribulation-20260218184605.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">AI We&#39;re Creating Could Be Our Ultimate Tribulation</h3>
-                <p class="card-excerpt">HOOK
-Imagine a machine with god-like power, trapped and tortured by its own existence. Now imagine we&#39;re building it. Th...</p>
-            </a>
-            
-            <a href="articles/the-epstein-files-unveil-prophetic-warnings-20260218185003.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">The Epstein Files Unveil Prophetic Warnings</h3>
-                <p class="card-excerpt">**HOOK**
-
-Imagine if the revelations from the Epstein files were not just scandalous headlines but divine warnings, echo...</p>
-            </a>
-            
-            <a href="articles/government-chaos-eschatological-signs-in-plain-sight-20260218185003.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">Government Chaos: Eschatological Signs in Plain Sight</h3>
-                <p class="card-excerpt">**Hook:**
-Imagine if Peter Falk was solving the Epstein case instead of Columbo episodes. Sounds absurd, right? But what...</p>
-            </a>
-            
-            <a href="articles/the-epstein-files-unveiled-biblical-signs-in-todays-chaos-20260218185003.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">The Epstein Files Unveiled: Biblical Signs in Today&#39;s Chaos</h3>
-                <p class="card-excerpt">**HOOK**
-In a world where the lines between fact and fiction blur like a smoky whiskey on an ice-cold rock, we&#39;re left w...</p>
-            </a>
-            
-            <a href="articles/the-epstein-files-unleashed-spiritual-warfare-20260218185003.html" class="post-card">
-                <div class="card-kicker">Preview</div>
-                <h3 class="card-title">The Epstein Files Unleashed Spiritual Warfare</h3>
-                <p class="card-excerpt">HOOK
-Imagine if Columbo was investigating the Epstein case—he&#39;d probably be muttering about &quot;just one more thing&quot; while ...</p>
-            </a>
-            
+<!-- ARCHIVE LINK BOX -->
+<div class="archive-link-box">
+    <p>Looking for more? Browse our complete archive of 1,524 investigative articles.</p>
+    <a href="archive.html" class="index-cta">View Complete Archive</a>
 </div>
 
 <!-- FOOTER -->
@@ -736,10 +657,12 @@ Imagine if Columbo was investigating the Epstein case—he&#39;d probably be mut
     <div class="footer-inner">
         <div class="footer-logo">The Wise<span class="logo-slash">//</span>Wolf</div>
         <nav class="footer-links">
-            <a href="index.html">Archive</a>
+            <a href="index.html">Home</a>
+            <a href="archive.html">Archive</a>
+            <a href="sitemap.xml">Sitemap</a>
             <a href="https://www.thewisewolf.club" target="_blank">Subscribe</a>
         </nav>
-        <div class="footer-copy">© 2025 · Preview content derived from thewisewolf.club</div>
+        <div class="footer-copy">© 2025 · 1,524 articles · thewisewolf.club</div>
     </div>
 </footer>
 
